@@ -10,20 +10,20 @@
         DisplayTextBox1.Text = DisplayTextBox1.Text + " + ";
     }
 
-    protected void ButtonNumber1_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + "1";
-    }
+    //protected void ButtonNumber1_Click(object sender, EventArgs e)
+    //{
+    //    DisplayTextBox1.Text = DisplayTextBox1.Text + "1";
+    //}
 
-    protected void ButtonNumber2_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + "2";
-    }
+    //protected void ButtonNumber2_Click(object sender, EventArgs e)
+    //{
+    //    DisplayTextBox1.Text = DisplayTextBox1.Text + "2";
+    //}
 
-    protected void ButtonNumber3_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + "3";
-    }
+    //protected void ButtonNumber3_Click(object sender, EventArgs e)
+    //{
+    //    DisplayTextBox1.Text = DisplayTextBox1.Text + "3";
+    //}
 
     protected void ButtonNumber4_Click(object sender, EventArgs e)
     {
@@ -60,75 +60,80 @@
         DisplayTextBox1.Text = DisplayTextBox1.Text + "0";
     }
 
+    protected void ButtonNumberMinus_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + " - ";
+    }
+
     protected void ButtonNumberEqual_Click(object sender, EventArgs e)
+    {
+
+        try
         {
+            string nr = DisplayTextBox1.Text;
 
-            try
+            string[] expresie;
+            char operatie = ' ';
+            decimal rezultat = 0;
+            decimal numar = 0;
+
+            if (nr == null)
+                return;
+
+            expresie = nr.Split(' ');
+
+            if (decimal.TryParse(expresie[0], out numar))
             {
-                string nr = DisplayTextBox1.Text;
-
-                string[] expresie;
-                char operatie = ' ';
-                decimal rezultat = 0;
-                decimal numar = 0;
-
-                if (nr == null)
-                    return;
-
-                expresie = nr.Split(' ');
-
-                if (decimal.TryParse(expresie[0], out numar))
+                rezultat = numar;
+            }
+            for (int i = 1; i < expresie.Length; ++i)
+            {
+                if (expresie[i] == "+" || expresie[i] == "-" || expresie[i] == "*" || expresie[i] == "/")
+                    operatie = expresie[i][0];
+                else if (decimal.TryParse(expresie[i], out numar))
                 {
-                    rezultat = numar;
-                }
-                for (int i = 1; i < expresie.Length; ++i)
-                {
-                    if (expresie[i] == "+" || expresie[i] == "-" || expresie[i] == "*" || expresie[i] == "/")
-                        operatie = expresie[i][0];
-                    else if (decimal.TryParse(expresie[i], out numar))
+                    if (operatie != ' ')
                     {
-                        if (operatie != ' ')
+                        switch (operatie)
                         {
-                            switch (operatie)
-                            {
-                                case '+':
-                                    {
-                                        rezultat = rezultat + numar;
-                                        break;
-                                    }
-                                case '-':
-                                    {
-                                        rezultat = rezultat - numar;
-                                        break;
-                                    }
+                            case '+':
+                                {
+                                    rezultat = rezultat + numar;
+                                    break;
+                                }
+                            case '-':
+                                {
+                                    rezultat = rezultat - numar;
+                                    break;
+                                }
 
-                                case '*':
-                                    {
-                                        rezultat = rezultat * numar;
-                                        break;
-                                    }
-                                case '/':
-                                    {
-                                        rezultat = rezultat / numar;
-                                        break;
-                                    }
-                            }
-
-                            operatie = ' ';
+                            case '*':
+                                {
+                                    rezultat = rezultat * numar;
+                                    break;
+                                }
+                            case '/':
+                                {
+                                    rezultat = rezultat / numar;
+                                    break;
+                                }
                         }
-                    }
 
+                        operatie = ' ';
+                    }
                 }
 
-                DisplayTextBox1.Text = rezultat.ToString();
             }
 
-            catch
-            {
-                DisplayTextBox1.Text = "ERROR";
-            }
-
+            DisplayTextBox1.Text = rezultat.ToString();
         }
+
+        catch
+        {
+            DisplayTextBox1.Text = "ERROR";
+        }
+
+    }
 </script>
 <html>
 <head>
@@ -191,7 +196,8 @@
                         Width="95px" OnClick="ButtonNumber6_Click" />
                 </td>
                 <td>
- 
+                    <asp:Button ID="ButtonNumberMinus" runat="server" Height="50px" Text="-"
+                    Width="95px" OnClick="ButtonNumberMinus_Click" />
                 </td>
             </tr>
             <tr>
@@ -205,7 +211,7 @@
                 </td>
                 <td>
                     <asp:Button ID="ButtonNumber3" runat="server" Height="50px" Text="3"
-                        Width="95px"  OnClick="ButtonNumber3_Click" />
+                        Width="95px" OnClick="ButtonNumber3_Click" />
                 </td>
                 <td colspan="3"></td>
                 <td>
@@ -227,3 +233,4 @@
     </form>
 </body>
 </html>
+ 
