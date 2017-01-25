@@ -29,15 +29,15 @@ public void Page_Load(object sender, EventArgs e)
         <div>
             <p id="dvVersion" runat="server" />
             <p id="dvEnvironmentVaraiable" runat="server"></p>
-           <label id="Label1" 
-             runat="server" Text="Label">
-           </label>
+           <asp:Label id="Label1" 
+                runat="server" Text="Label">
+           </asp:Label>
            <br />
-           <button id="Button1" 
+           <asp:Button id="Button1" 
              runat="server" 
-             onclick=""
-             title="Button">
-          </button>
+              
+             Text="Button">
+          </asp:Button>
         </div>
     </form>
 </body>
