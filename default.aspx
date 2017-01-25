@@ -88,6 +88,11 @@
 
     }
 
+    protected void ButtonNumberDivide_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + @" / ";
+    }
+
     protected void ButtonNumberEqual_Click(object sender, EventArgs e)
     {
 
@@ -194,6 +199,7 @@
                         Width="95px" OnClick="ButtonNumberdot_Click" />
                 </td>
                 <td>
+                    <asp:Button ID="ButtonNumberDivide" runat="server" Height="50px" Text="D" Width="95px" ForeColor="Black" OnClick="ButtonNumberDivide_Click" />
                 </td>
             </tr>
           
