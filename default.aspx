@@ -25,18 +25,20 @@ public void Page_Load(object sender, EventArgs e)
   <title>Single-File Page Model</title>
 </head>
 <body>
-    <div>
-        <p id="dvVersion" runat="server" />
-        <p id="dvEnvironmentVaraiable" runat="server"></p>
-       <label id="Label1" 
-         runat="server" Text="Label">
-       </label>
-       <br />
-       <button id="Button1" 
-         runat="server" 
-         onclick="" 
-         title="Button">
-      </button>
-    </div>
+    <form runat="server">
+        <div>
+            <p id="dvVersion" runat="server" />
+            <p id="dvEnvironmentVaraiable" runat="server"></p>
+           <label id="Label1" 
+             runat="server" Text="Label">
+           </label>
+           <br />
+           <button id="Button1" 
+             runat="server" 
+             onclick=""
+             title="Button">
+          </button>
+        </div>
+    </form>
 </body>
 </html>
