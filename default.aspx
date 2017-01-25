@@ -1,4 +1,4 @@
-<%@ Page Language="C#" %>
+       <%@ Page Language="C#" %>
  <script language="c#" runat="server">
 
         protected void ButtonNumberdot_Click(object sender, EventArgs e)
@@ -167,115 +167,118 @@
     <title>Welcome to "Calculator Cristina" on OpenShift</title>
 </head>
 <body>
-    <section class="container">
-        <hgroup>
-            <h1>Welcome to "Calculator Cristina" on OpenShift</h1>
-        </hgroup>
+    <form runat="server">
+        <section class="container">
+            <hgroup>
+                <h1>Welcome to "Calculator Cristina" on OpenShift</h1>
+            </hgroup>
 
-        <form runat="server">
-            <table>
-                <tr>
-                    <td colspan="4"></td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <asp:TextBox ID="DisplayTextBox1" runat="server" Height="45px" Width="375px"
-                            TextMode="MultiLine" Font-Bold="True" Font-Size="X-Large" ReadOnly="True"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
+        
+                <table>
+                    <tr>
+                        <td colspan="4"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <asp:TextBox ID="DisplayTextBox1" runat="server" Height="45px" Width="375px"
+                                TextMode="MultiLine" Font-Bold="True" Font-Size="X-Large" ReadOnly="True"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
                         
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="Button24" runat="server" Height="50px" Text="DEL"
-                            Width="95px" OnClick="Button24_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="Button25" runat="server" Height="50px" Text="AC"
-                            Width="95px" OnClick="Button25_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumberdot" runat="server" Height="50px" Text="."
-                            Width="95px" OnClick="ButtonNumberdot_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="รท"
-                            Width="95px" ForeColor="Black"
-                            OnClick="ButtonNumberDevide_Click" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="ButtonNumber7" runat="server" Height="50px" Text="7"
-                            Width="95px" OnClick="ButtonNumber7_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumber8" runat="server" Height="50px" Text="8"
-                            Width="95px" OnClick="ButtonNumber8_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumber9" runat="server" Height="50px" Text="9"
-                            Width="95px" OnClick="ButtonNumber9_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumberMulti" runat="server" Height="50px" Text="X"
-                            Width="95px" OnClick="ButtonNumberMulti_Click" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="ButtonNumber4" runat="server" Height="50px" Text="4"
-                            Width="95px" OnClick="ButtonNumber4_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumber5" runat="server" Height="50px" Text="5"
-                            Width="95px" OnClick="ButtonNumber5_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumber6" runat="server" Height="50px" Text="6"
-                            Width="95px" OnClick="ButtonNumber6_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumberMinus" runat="server" Height="50px" Text="_"
-                            Width="95px" OnClick="ButtonNumberMinus_Click" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="ButtonNumber1" runat="server" Height="50px" Text="1"
-                            Width="95px" OnClick="ButtonNumber1_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumber2" runat="server" Height="50px" Text="2"
-                            Width="95px" OnClick="ButtonNumber2_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumber3" runat="server" Height="50px" Text="3"
-                            Width="95px" ClientIDMode="AutoID" OnClick="ButtonNumber3_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="ButtonNumberPlus" runat="server" Height="50px" Text="+"
-                            Width="95px" OnClick="ButtonNumberPlus_Click" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="ButtonNumber0" runat="server" Height="50px" Text="0"
-                            Width="95px" OnClick="ButtonNumber0_Click" />
-                    </td>
-                    <td colspan="3">
-                        <asp:Button ID="ButtonNumberEqual" runat="server" Height="50px" Text="="
-                            Width="293px" OnClick="ButtonNumberEqual_Click" />
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <footer>
-            <div class="logo"><a href="http://click2cloud.net/" target="_blank"></a></div>
-        </footer>
-    </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="Button24" runat="server" Height="50px" Text="DEL"
+                                Width="95px" OnClick="Button24_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="Button25" runat="server" Height="50px" Text="AC"
+                                Width="95px" OnClick="Button25_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumberdot" runat="server" Height="50px" Text="."
+                                Width="95px" OnClick="ButtonNumberdot_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="รท"
+                                Width="95px" ForeColor="Black"
+                                OnClick="ButtonNumberDevide_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="ButtonNumber7" runat="server" Height="50px" Text="7"
+                                Width="95px" OnClick="ButtonNumber7_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumber8" runat="server" Height="50px" Text="8"
+                                Width="95px" OnClick="ButtonNumber8_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumber9" runat="server" Height="50px" Text="9"
+                                Width="95px" OnClick="ButtonNumber9_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumberMulti" runat="server" Height="50px" Text="X"
+                                Width="95px" OnClick="ButtonNumberMulti_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="ButtonNumber4" runat="server" Height="50px" Text="4"
+                                Width="95px" OnClick="ButtonNumber4_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumber5" runat="server" Height="50px" Text="5"
+                                Width="95px" OnClick="ButtonNumber5_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumber6" runat="server" Height="50px" Text="6"
+                                Width="95px" OnClick="ButtonNumber6_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumberMinus" runat="server" Height="50px" Text="_"
+                                Width="95px" OnClick="ButtonNumberMinus_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="ButtonNumber1" runat="server" Height="50px" Text="1"
+                                Width="95px" OnClick="ButtonNumber1_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumber2" runat="server" Height="50px" Text="2"
+                                Width="95px" OnClick="ButtonNumber2_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumber3" runat="server" Height="50px" Text="3"
+                                Width="95px" ClientIDMode="AutoID" OnClick="ButtonNumber3_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="ButtonNumberPlus" runat="server" Height="50px" Text="+"
+                                Width="95px" OnClick="ButtonNumberPlus_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="ButtonNumber0" runat="server" Height="50px" Text="0"
+                                Width="95px" OnClick="ButtonNumber0_Click" />
+                        </td>
+                        <td colspan="3">
+                            <asp:Button ID="ButtonNumberEqual" runat="server" Height="50px" Text="="
+                                Width="293px" OnClick="ButtonNumberEqual_Click" />
+                        </td>
+                    </tr>
+                </table>
+        
+            <footer>
+                <div class="logo"><a href="http://click2cloud.net/" target="_blank"></a></div>
+            </footer>
+        </section>
+    </form>
 </body>
 </html>
+             
