@@ -65,6 +65,11 @@
         DisplayTextBox1.Text = DisplayTextBox1.Text + " - ";
     }
 
+    protected void ButtonNumberMulti_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + " * ";
+    }
+
     protected void ButtonNumberEqual_Click(object sender, EventArgs e)
     {
 
@@ -179,7 +184,7 @@
                         Width="95px" OnClick="ButtonNumber9_Click" />
                 </td>
                 <td>
-      
+                        <asp:Button ID="ButtonNumberMulti" runat="server" Height="50px" Text="X" Width="95px" OnClick="ButtonNumberMulti_Click" />
                 </td>
             </tr>
             <tr>
@@ -233,4 +238,3 @@
     </form>
 </body>
 </html>
- 
