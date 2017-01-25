@@ -70,6 +70,11 @@
         DisplayTextBox1.Text = DisplayTextBox1.Text + " * ";
     }
 
+    protected void ButtonNumberDevide_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + " / ";
+    }
+
     protected void ButtonNumberEqual_Click(object sender, EventArgs e)
     {
 
@@ -164,7 +169,7 @@
 
            <tr>
                 <td>
-        
+                    <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="/" Width="95px" ForeColor="Black" OnClick="ButtonNumberDevide_Click" />
                 </td>
                <td colspan="3">
                 </td>
@@ -218,7 +223,6 @@
                     <asp:Button ID="ButtonNumber3" runat="server" Height="50px" Text="3"
                         Width="95px" OnClick="ButtonNumber3_Click" />
                 </td>
-                <td colspan="3"></td>
                 <td>
                     <asp:Button ID="ButtonNumberPlus" runat="server" Height="50px" Text="+"
                         Width="95px" OnClick="ButtonNumberPlus_Click" />
