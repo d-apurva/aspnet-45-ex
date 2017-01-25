@@ -10,20 +10,20 @@
         DisplayTextBox1.Text = DisplayTextBox1.Text + " + ";
     }
 
-    protected void ButtonNumber1_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + "1";
-    }
+    //protected void ButtonNumber1_Click(object sender, EventArgs e)
+    //{
+    //    DisplayTextBox1.Text = DisplayTextBox1.Text + "1";
+    //}
 
-    protected void ButtonNumber2_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + "2";
-    }
+    //protected void ButtonNumber2_Click(object sender, EventArgs e)
+    //{
+    //    DisplayTextBox1.Text = DisplayTextBox1.Text + "2";
+    //}
 
-    protected void ButtonNumber3_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + "3";
-    }
+    //protected void ButtonNumber3_Click(object sender, EventArgs e)
+    //{
+    //    DisplayTextBox1.Text = DisplayTextBox1.Text + "3";
+    //}
 
     protected void ButtonNumber4_Click(object sender, EventArgs e)
     {
@@ -62,17 +62,17 @@
 
     protected void ButtonNumberMinus_Click(object sender, EventArgs e)
     {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + " - ";
+        DisplayTextBox1.Text = DisplayTextBox1.Text + "-";
     }
 
     protected void ButtonNumberMulti_Click(object sender, EventArgs e)
     {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + " * ";
+        DisplayTextBox1.Text = DisplayTextBox1.Text + "*";
     }
 
     protected void ButtonNumberDevide_Click(object sender, EventArgs e)
     {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + " / ";
+        DisplayTextBox1.Text = DisplayTextBox1.Text + "/";
     }
 </script>
 <html>
@@ -144,7 +144,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <%--<td>
                     <asp:Button ID="ButtonNumber1" runat="server" Height="50px" Text="1"
                         Width="95px" OnClick="ButtonNumber1_Click" />
                 </td>
@@ -155,7 +155,8 @@
                 <td>
                     <asp:Button ID="ButtonNumber3" runat="server" Height="50px" Text="3"
                         Width="95px" ClientIDMode="AutoID" OnClick="ButtonNumber3_Click" />
-                </td>
+                </td>--%>
+                <td colspan="3"></td>
                 <td>
                     <asp:Button ID="ButtonNumberPlus" runat="server" Height="50px" Text="+"
                         Width="95px" OnClick="ButtonNumberPlus_Click" />
