@@ -104,9 +104,11 @@
 
            <tr>
                 <td>
-                    <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="/"
+                    <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="D"
                         Width="95px" ForeColor="Black"
                         OnClick="ButtonNumberDevide_Click" />
+                </td>
+               <td colspan="3">
                 </td>
             </tr>
           
