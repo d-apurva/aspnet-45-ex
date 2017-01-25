@@ -64,6 +64,21 @@
     {
         DisplayTextBox1.Text = DisplayTextBox1.Text + "0";
     }
+
+    protected void ButtonNumberMinus_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + " - ";
+    }
+
+    protected void ButtonNumberMulti_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + " * ";
+    }
+
+    protected void ButtonNumberDevide_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + " / ";
+    }
 </script>
 <html>
 <head>
@@ -86,6 +101,14 @@
                         
                 </td>
             </tr>
+
+           <tr>
+                <td>
+                    <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="/"
+                        Width="95px" ForeColor="Black"
+                        OnClick="ButtonNumberDevide_Click" />
+                </td>
+            </tr>
           
             <tr>
                 <td>
@@ -101,6 +124,8 @@
                         Width="95px" OnClick="ButtonNumber9_Click" />
                 </td>
                 <td>
+                    <asp:Button ID="ButtonNumberMulti" runat="server" Height="50px" Text="X"
+                                Width="95px" OnClick="ButtonNumberMulti_Click" />
                 </td>
             </tr>
             <tr>
@@ -117,6 +142,8 @@
                         Width="95px" OnClick="ButtonNumber6_Click" />
                 </td>
                 <td>
+                     <asp:Button ID="ButtonNumberMinus" runat="server" Height="50px" Text="_"
+                                Width="95px" OnClick="ButtonNumberMinus_Click" />
                 </td>
             </tr>
             <tr>
