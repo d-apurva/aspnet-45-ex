@@ -2,7 +2,7 @@
 <script runat="server">
     public void Page_Load(object sender, EventArgs e)
     {
-        Type type = Type.GetType("Mono.Runtime");
+       /* Type type = Type.GetType("Mono.Runtime");
         if (type != null)
         {
             System.Reflection.MethodInfo displayName = type.GetMethod("GetDisplayName", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
@@ -18,6 +18,7 @@
         dvEnvironmentVaraiable.InnerHtml = string.Empty;
         foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
             dvEnvironmentVaraiable.InnerHtml += string.Format("{0} = {1}<br/>", de.Key.ToString().Trim(), de.Value.ToString().Trim());
+            */
     }
 
     protected void Button1_Click(Object sender, EventArgs e)
