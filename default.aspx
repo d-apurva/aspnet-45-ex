@@ -2,90 +2,247 @@
 
 <html>
 <head>
-    <title>Welcome to OpenShift - ASP.NET 4.5 Application</title>
+   
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href="main.css" rel="stylesheet" />
     <script language="c#" runat="server">
-
-        public void Page_Load(object sender, EventArgs e)
+        protected void ButtonNumberdot_Click(object sender, EventArgs e)
         {
-            Type type = Type.GetType("Mono.Runtime");
-            if (type != null)
+            DisplayTextBox1.Text = DisplayTextBox1.Text + ".";
+        }
+        protected void ButtonNumberPlus_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + " + ";
+        }
+        protected void ButtonNumberMinus_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + " - ";
+        }
+        protected void ButtonNumberMulti_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + " * ";
+        }
+        protected void ButtonNumberDevide_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + " / ";
+        }
+        protected void ButtonNumber1_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + "1";
+        }
+        protected void ButtonNumber2_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + "2";
+        }
+        protected void ButtonNumber3_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + "3";
+        }
+        protected void ButtonNumber4_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + "4";
+        }
+        protected void ButtonNumber5_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + "5";
+        }
+        protected void ButtonNumber6_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + "6";
+        }
+        protected void ButtonNumber7_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + "7";
+        }
+        protected void ButtonNumber8_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + "8";
+        }
+        protected void ButtonNumber9_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + "9";
+        }
+        protected void ButtonNumber0_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = DisplayTextBox1.Text + "0";
+        }
+        protected void Button25_Click(object sender, EventArgs e)
+        {
+            DisplayTextBox1.Text = "";
+        }
+        protected void Button24_Click(object sender, EventArgs e)
+        {
+            string DisplayText = DisplayTextBox1.Text;
+            int LastIndex = DisplayText.Length;
+            DisplayTextBox1.Text = DisplayTextBox1.Text.Remove(LastIndex - 1);
+        }
+        protected void ButtonNumberEqual_Click(object sender, EventArgs e)
+        {
+            try
             {
-                System.Reflection.MethodInfo displayName = type.GetMethod("GetDisplayName", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
-                if (displayName != null)
-                    dvVersion.InnerHtml = "Current application running on Mono <b>" + displayName.Invoke(null, null) + "</b>";
+                string nr = DisplayTextBox1.Text;
+                string[] expresie;
+                char operatie = ' ';
+                decimal rezultat = 0;
+                decimal numar = 0;
+                if (nr == null)
+                    return;
+                expresie = nr.Split(' ');
+                if (decimal.TryParse(expresie[0], out numar))
+                {
+                    rezultat = numar;
+                }
+                for (int i = 1; i < expresie.Length; ++i)
+                {
+                    if (expresie[i] == "+" || expresie[i] == "-" || expresie[i] == "*" || expresie[i] == "/")
+                        operatie = expresie[i][0];
+                    else if (decimal.TryParse(expresie[i], out numar))
+                    {
+                        if (operatie != ' ')
+                        {
+                            switch (operatie)
+                            {
+                                case '+':
+                                    {
+                                        rezultat = rezultat + numar;
+                                        break;
+                                    }
+                                case '-':
+                                    {
+                                        rezultat = rezultat - numar;
+                                        break;
+                                    }
+                                case '*':
+                                    {
+                                        rezultat = rezultat * numar;
+                                        break;
+                                    }
+                                case '/':
+                                    {
+                                        rezultat = rezultat / numar;
+                                        break;
+                                    }
+                            }
+                            operatie = ' ';
+                        }
+                    }
+                }
+                DisplayTextBox1.Text = rezultat.ToString();
             }
-            else
+            catch
             {
-                var targetFw = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Runtime.Versioning.TargetFrameworkAttribute), false);
-                string framworkName = ((System.Runtime.Versioning.TargetFrameworkAttribute)targetFw[0]).FrameworkName;
-                dvVersion.InnerHtml = "Current application running on <b>" + framworkName + "</b>";
+                DisplayTextBox1.Text = "ERROR";
             }
-
-            dvEnvironmentVaraiable.InnerHtml = string.Empty;
-            foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
-                dvEnvironmentVaraiable.InnerHtml += string.Format("{0} = {1}<br/>", de.Key.ToString().Trim(), de.Value.ToString().Trim());
         }
     </script>
 </head>
 <body>
     <section class="container">
         <hgroup>
-            <h1>Welcome to your .NET application on OpenShift</h1>
+            <h1>Welcome to "Calculator Cristina" on OpenShift</h1>
         </hgroup>
 
-
-        <div class="row">
-            <section class="col-xs-12 col-sm-6 col-md-6">
-                <section>
-                    <h2>How to use this example application</h2>
-                    <p>For instructions on how to use this application with OpenShift, start by reading the <a href="http://docs.openshift.org/latest/dev_guide/templates.html#using-the-quickstart-templates" target="_blank">Developer Guide</a>.</p>
-
-                    <h2>.NET Framework version</h2>
-                    <p id="dvVersion" runat="server" />
-
-                    <h2>Application Environment Variables</h2>
-                    <b>NOTE: Environment variables may include secure content. Do not expose all your environment variables.</b>
-                    <br/>
-                    <br/>
-                    <p id="dvEnvironmentVaraiable" runat="server">
-                    </p>
-
-                </section>
-
-            </section>
-            <section class="col-xs-12 col-sm-6 col-md-6">
-
-                <h2>Managing your application</h2>
-
-                <p>Documentation on how to manage your application from the Web Console or Command Line is available at the <a href="http://docs.openshift.org/latest/dev_guide/overview.html" target="_blank">Developer Guide</a>.</p>
-
-                <h3>Web Console</h3>
-                <p>You can use the Web Console to view the state of your application components and launch new builds.</p>
-
-                <h3>Command Line</h3>
-                <p>With the <a href="http://docs.openshift.org/latest/cli_reference/overview.html" target="_blank">OpenShift command line interface</a> (CLI), you can create applications and manage projects from a terminal.</p>
-
-                <h3>Click2Cloud's OpenShift Tool for Visual Studio</h3>
-                <p>With the <a href="https://visualstudiogallery.msdn.microsoft.com/9a5b8b19-dadf-4b46-8712-527303d32231" target="_blank">Click2Cloud's OpenShift Tool for Visual Studio</a>, you can create applications and manage projects right from your Visual Studio IDE.</p>
-                <p>Watch Click2Cloud's OpenShift Tool in action on <a href="https://www.youtube.com/playlist?list=PLWgCcDWQfFlv0cRJIE6j8PJWnBre1JvlD" target="_blank">YouTube</a>.</p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLWgCcDWQfFlv0cRJIE6j8PJWnBre1JvlD" frameborder="0" allowfullscreen></iframe>
-
-                <h2>Development Resources</h2>
-                <ul>
-                    <li><a href="http://docs.openshift.org/latest/welcome/index.html" target="_blank">OpenShift Documentation</a></li>
-                    <li><a href="https://github.com/openshift/origin" target="_blank">Openshift Origin GitHub</a></li>
-                    <li><a href="https://github.com/openshift/source-to-image" target="_blank">Source To Image GitHub</a></li>
-                    <li><a href="http://docs.openshift.org/latest/using_images/s2i_images/nodejs.html" target="_blank">Getting Started with Node.js on OpenShift</a></li>
-                    <li><a href="http://stackoverflow.com/questions/tagged/openshift" target="_blank">Stack Overflow questions for OpenShift</a></li>
-                    <li><a href="http://git-scm.com/documentation" target="_blank">Git documentation</a></li>
-                    <li><a href="https://visualstudiogallery.msdn.microsoft.com/9a5b8b19-dadf-4b46-8712-527303d32231" target="_blank">Click2Cloud's OpenShift Tool for Visual Studio</a></li>
-                    <li><a href="http://click2cloud.net/docs/tools/index.html?productid=9a5b8b19-dadf-4b46-8712-527303d32231" target="_blank">Click2Cloud's OpenShift Tool Documentation</a></li>
-                </ul>
-            </section>
-        </div>
-
+        <form runat="server">
+            <table>
+                <tr>
+                    <td colspan="4"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <asp:TextBox ID="DisplayTextBox1" runat="server" Height="45px" Width="375px"
+                            TextMode="MultiLine" Font-Bold="True" Font-Size="X-Large" ReadOnly="True"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" height="30px">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="Button24" runat="server" Height="50px" Text="DEL"
+                            Width="95px" OnClick="Button24_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button25" runat="server" Height="50px" Text="AC"
+                            Width="95px" OnClick="Button25_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumberdot" runat="server" Height="50px" Text="."
+                            Width="95px" OnClick="ButtonNumberdot_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="รท"
+                            Width="95px" ForeColor="Black"
+                            OnClick="ButtonNumberDevide_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="ButtonNumber7" runat="server" Height="50px" Text="7"
+                            Width="95px" OnClick="ButtonNumber7_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumber8" runat="server" Height="50px" Text="8"
+                            Width="95px" OnClick="ButtonNumber8_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumber9" runat="server" Height="50px" Text="9"
+                            Width="95px" OnClick="ButtonNumber9_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumberMulti" runat="server" Height="50px" Text="X"
+                            Width="95px" OnClick="ButtonNumberMulti_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="ButtonNumber4" runat="server" Height="50px" Text="4"
+                            Width="95px" OnClick="ButtonNumber4_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumber5" runat="server" Height="50px" Text="5"
+                            Width="95px" OnClick="ButtonNumber5_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumber6" runat="server" Height="50px" Text="6"
+                            Width="95px" OnClick="ButtonNumber6_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumberMinus" runat="server" Height="50px" Text="_"
+                            Width="95px" OnClick="ButtonNumberMinus_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="ButtonNumber1" runat="server" Height="50px" Text="1"
+                            Width="95px" OnClick="ButtonNumber1_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumber2" runat="server" Height="50px" Text="2"
+                            Width="95px" OnClick="ButtonNumber2_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumber3" runat="server" Height="50px" Text="3"
+                            Width="95px" ClientIDMode="AutoID" OnClick="ButtonNumber3_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="ButtonNumberPlus" runat="server" Height="50px" Text="+"
+                            Width="95px" OnClick="ButtonNumberPlus_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="ButtonNumber0" runat="server" Height="50px" Text="0"
+                            Width="95px" OnClick="ButtonNumber0_Click" />
+                    </td>
+                    <td colspan="3">
+                        <asp:Button ID="ButtonNumberEqual" runat="server" Height="50px" Text="="
+                            Width="293px" OnClick="ButtonNumberEqual_Click" />
+                    </td>
+                </tr>
+            </table>
+        </form>
         <footer>
             <div class="logo"><a href="http://click2cloud.net/" target="_blank"></a></div>
         </footer>
