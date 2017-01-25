@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href="main.css" rel="stylesheet" />
     <script language="c#" runat="server">
+        public void Page_Load(object sender, EventArgs e)
+        {
+           
+        }
         protected void ButtonNumberdot_Click(object sender, EventArgs e)
         {
             DisplayTextBox1.Text = DisplayTextBox1.Text + ".";
