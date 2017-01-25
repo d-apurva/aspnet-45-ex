@@ -90,7 +90,7 @@
 
     protected void ButtonNumberDivide_Click(object sender, EventArgs e)
     {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + " # ";
+        DisplayTextBox1.Text = DisplayTextBox1.Text + " D ";
     }
 
     protected void ButtonNumberEqual_Click(object sender, EventArgs e)
@@ -116,7 +116,7 @@
             }
             for (int i = 1; i < expresie.Length; ++i)
             {
-                if (expresie[i] == "+" || expresie[i] == "-" || expresie[i] == "*" || expresie[i] == "#")
+                if (expresie[i] == "+" || expresie[i] == "-" || expresie[i] == "*" || expresie[i] == "D")
                     operatie = expresie[i][0];
                 else if (decimal.TryParse(expresie[i], out numar))
                 {
@@ -140,7 +140,7 @@
                                     rezultat = rezultat * numar;
                                     break;
                                 }
-                            case '#':
+                            case 'D':
                                 {
                                     rezultat = Decimal.Divide(rezultat, numar);
                                     break;
