@@ -70,9 +70,22 @@
         DisplayTextBox1.Text = DisplayTextBox1.Text + " * ";
     }
 
-    protected void ButtonNumberDevide_Click(object sender, EventArgs e)
+    protected void Button25_Click(object sender, EventArgs e)
     {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + " / ";
+        DisplayTextBox1.Text = "";
+    }
+
+    protected void ButtonNumberdot_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + ".";
+    }
+
+    protected void Button24_Click(object sender, EventArgs e)
+    {
+        string DisplayText = DisplayTextBox1.Text;
+        int LastIndex = DisplayText.Length;
+        DisplayTextBox1.Text = DisplayTextBox1.Text.Remove(LastIndex - 1);
+
     }
 
     protected void ButtonNumberEqual_Click(object sender, EventArgs e)
@@ -168,10 +181,19 @@
             </tr>
 
            <tr>
-                <td>
-                    <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="/" Width="95px" ForeColor="Black" OnClick="ButtonNumberDevide_Click" />
+               <td>
+                    <asp:Button ID="Button24" runat="server" Height="50px" Text="DEL"
+                        Width="95px" OnClick="Button24_Click" />
                 </td>
-               <td colspan="3">
+                <td>
+                    <asp:Button ID="Button25" runat="server" Height="50px" Text="AC"
+                        Width="95px" OnClick="Button25_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="ButtonNumberdot" runat="server" Height="50px" Text="."
+                        Width="95px" OnClick="ButtonNumberdot_Click" />
+                </td>
+                <td>
                 </td>
             </tr>
           
