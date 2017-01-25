@@ -60,20 +60,75 @@
         DisplayTextBox1.Text = DisplayTextBox1.Text + "0";
     }
 
-    protected void ButtonNumberMinus_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + "-";
-    }
+    protected void ButtonNumberEqual_Click(object sender, EventArgs e)
+        {
 
-    protected void ButtonNumberMulti_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + "*";
-    }
+            try
+            {
+                string nr = DisplayTextBox1.Text;
 
-    protected void ButtonNumberDevide_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + "/";
-    }
+                string[] expresie;
+                char operatie = ' ';
+                decimal rezultat = 0;
+                decimal numar = 0;
+
+                if (nr == null)
+                    return;
+
+                expresie = nr.Split(' ');
+
+                if (decimal.TryParse(expresie[0], out numar))
+                {
+                    rezultat = numar;
+                }
+                for (int i = 1; i < expresie.Length; ++i)
+                {
+                    if (expresie[i] == "+" || expresie[i] == "-" || expresie[i] == "*" || expresie[i] == "/")
+                        operatie = expresie[i][0];
+                    else if (decimal.TryParse(expresie[i], out numar))
+                    {
+                        if (operatie != ' ')
+                        {
+                            switch (operatie)
+                            {
+                                case '+':
+                                    {
+                                        rezultat = rezultat + numar;
+                                        break;
+                                    }
+                                case '-':
+                                    {
+                                        rezultat = rezultat - numar;
+                                        break;
+                                    }
+
+                                case '*':
+                                    {
+                                        rezultat = rezultat * numar;
+                                        break;
+                                    }
+                                case '/':
+                                    {
+                                        rezultat = rezultat / numar;
+                                        break;
+                                    }
+                            }
+
+                            operatie = ' ';
+                        }
+                    }
+
+                }
+
+                DisplayTextBox1.Text = rezultat.ToString();
+            }
+
+            catch
+            {
+                DisplayTextBox1.Text = "ERROR";
+            }
+
+        }
 </script>
 <html>
 <head>
@@ -99,9 +154,7 @@
 
            <tr>
                 <td>
-                    <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="D"
-                        Width="95px" ForeColor="Black"
-                        OnClick="ButtonNumberDevide_Click" />
+        
                 </td>
                <td colspan="3">
                 </td>
@@ -121,8 +174,7 @@
                         Width="95px" OnClick="ButtonNumber9_Click" />
                 </td>
                 <td>
-                    <asp:Button ID="ButtonNumberMulti" runat="server" Height="50px" Text="X"
-                                Width="95px" OnClick="ButtonNumberMulti_Click" />
+      
                 </td>
             </tr>
             <tr>
@@ -139,12 +191,11 @@
                         Width="95px" OnClick="ButtonNumber6_Click" />
                 </td>
                 <td>
-                     <asp:Button ID="ButtonNumberMinus" runat="server" Height="50px" Text="_"
-                                Width="95px" OnClick="ButtonNumberMinus_Click" />
+ 
                 </td>
             </tr>
             <tr>
-                <%--<td>
+                <td>
                     <asp:Button ID="ButtonNumber1" runat="server" Height="50px" Text="1"
                         Width="95px" OnClick="ButtonNumber1_Click" />
                 </td>
@@ -155,7 +206,7 @@
                 <td>
                     <asp:Button ID="ButtonNumber3" runat="server" Height="50px" Text="3"
                         Width="95px" ClientIDMode="AutoID" OnClick="ButtonNumber3_Click" />
-                </td>--%>
+                </td>
                 <td colspan="3"></td>
                 <td>
                     <asp:Button ID="ButtonNumberPlus" runat="server" Height="50px" Text="+"
@@ -168,6 +219,8 @@
                         Width="95px" OnClick="ButtonNumber0_Click" />
                 </td>
                 <td colspan="3">
+                    <asp:Button ID="ButtonNumberEqual" runat="server" Height="50px" Text="="
+                                Width="293px" OnClick="ButtonNumberEqual_Click" />
                 </td>
             </tr>
         </table>
