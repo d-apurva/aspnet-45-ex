@@ -90,7 +90,6 @@
         string DisplayText = DisplayTextBox1.Text;
         int LastIndex = DisplayText.Length;
         DisplayTextBox1.Text = DisplayTextBox1.Text.Remove(LastIndex - 1);
-
     }
 
     //protected void ButtonNumberEqual_Click(object sender, EventArgs e)
@@ -199,7 +198,7 @@
                         Width="95px" OnClick="ButtonNumberdot_Click" />
                 </td>
                 <td>
-                    <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="รท"
+                    <asp:Button ID="ButtonNumberDevide" runat="server" Height="50px" Text="/"
                         Width="95px" ForeColor="Black"
                         OnClick="ButtonNumberDevide_Click" />
                 </td>
