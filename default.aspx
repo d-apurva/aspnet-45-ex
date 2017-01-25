@@ -142,7 +142,7 @@
                                 }
                             case '#':
                                 {
-                                    rezultat = rezultat / numar;
+                                    rezultat = Decimal.Divide(rezultat, numar);
                                     break;
                                 }
                         }
