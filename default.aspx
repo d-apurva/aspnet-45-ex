@@ -116,7 +116,7 @@
             }
             for (int i = 1; i < expresie.Length; ++i)
             {
-                if (expresie[i] == "+" || expresie[i] == "-" || expresie[i] == "*" || expresie[i] == "Z")
+                if (expresie[i] == "+" || expresie[i] == "-" || expresie[i] == "*" || expresie[i] == "/")
                     operatie = expresie[i][0];
                 else if (decimal.TryParse(expresie[i], out numar))
                 {
@@ -140,7 +140,7 @@
                                     rezultat = rezultat * numar;
                                     break;
                                 }
-                            case 'Z':
+                            case '/':
                                 {
                                     rezultat = Decimal.Divide(rezultat, numar);
                                     break;
@@ -165,7 +165,7 @@
 
     protected void btnDiv_Click(object sender, EventArgs e)
     {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + " Z ";
+        DisplayTextBox1.Text = DisplayTextBox1.Text + " / ";
     }
 </script>
 <html>
@@ -205,7 +205,7 @@
                 </td>
                 <td>
                     <%--<asp:Button ID="ButtonNumberDivide" runat="server" Height="50px" Text="Z" Width="95px" OnClick="ButtonNumberDivide_Click" />--%>
-                    <asp:Button ID="btnDiv" runat="server" Height="50px" Text="Z" Width="95px" OnClick="btnDiv_Click" />
+                    <asp:Button ID="btnDiv" runat="server" Height="50px" Text="/" Width="95px" OnClick="btnDiv_Click" />
                 </td>
             </tr>
           
