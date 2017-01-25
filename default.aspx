@@ -5,11 +5,6 @@
 
     }
 
-    protected void ButtonNumberdot_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + ".";
-    }
-
     protected void ButtonNumberPlus_Click(object sender, EventArgs e)
     {
         DisplayTextBox1.Text = DisplayTextBox1.Text + " + ";
