@@ -20,7 +20,7 @@
             dvEnvironmentVaraiable.InnerHtml += string.Format("{0} = {1}<br/>", de.Key.ToString().Trim(), de.Value.ToString().Trim());
     }
 
-    public void Button1_Click(Object sender, EventArgs e)
+    protected void Button1_Click(Object sender, EventArgs e)
     {
         Label1.Text = "Clicked at " + DateTime.Now.ToString();
     }
