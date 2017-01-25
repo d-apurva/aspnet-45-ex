@@ -10,20 +10,20 @@
         DisplayTextBox1.Text = DisplayTextBox1.Text + " + ";
     }
 
-    //protected void ButtonNumber1_Click(object sender, EventArgs e)
-    //{
-    //    DisplayTextBox1.Text = DisplayTextBox1.Text + "1";
-    //}
+    protected void ButtonNumber1_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + "1";
+    }
 
-    //protected void ButtonNumber2_Click(object sender, EventArgs e)
-    //{
-    //    DisplayTextBox1.Text = DisplayTextBox1.Text + "2";
-    //}
+    protected void ButtonNumber2_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + "2";
+    }
 
-    //protected void ButtonNumber3_Click(object sender, EventArgs e)
-    //{
-    //    DisplayTextBox1.Text = DisplayTextBox1.Text + "3";
-    //}
+    protected void ButtonNumber3_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + "3";
+    }
 
     protected void ButtonNumber4_Click(object sender, EventArgs e)
     {
@@ -205,7 +205,7 @@
                 </td>
                 <td>
                     <asp:Button ID="ButtonNumber3" runat="server" Height="50px" Text="3"
-                        Width="95px" ClientIDMode="AutoID" OnClick="ButtonNumber3_Click" />
+                        Width="95px"  OnClick="ButtonNumber3_Click" />
                 </td>
                 <td colspan="3"></td>
                 <td>
