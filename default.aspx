@@ -88,10 +88,10 @@
 
     }
 
-    protected void ButtonNumberDivide_Click(object sender, EventArgs e)
-    {
-        DisplayTextBox1.Text = DisplayTextBox1.Text + " D ";
-    }
+    //protected void ButtonNumberDivide_Click(object sender, EventArgs e)
+    //{
+    //    DisplayTextBox1.Text = DisplayTextBox1.Text + " Z ";
+    //}
 
     protected void ButtonNumberEqual_Click(object sender, EventArgs e)
     {
@@ -116,7 +116,7 @@
             }
             for (int i = 1; i < expresie.Length; ++i)
             {
-                if (expresie[i] == "+" || expresie[i] == "-" || expresie[i] == "*" || expresie[i] == "D")
+                if (expresie[i] == "+" || expresie[i] == "-" || expresie[i] == "*" || expresie[i] == "Z")
                     operatie = expresie[i][0];
                 else if (decimal.TryParse(expresie[i], out numar))
                 {
@@ -140,7 +140,7 @@
                                     rezultat = rezultat * numar;
                                     break;
                                 }
-                            case 'D':
+                            case 'Z':
                                 {
                                     rezultat = Decimal.Divide(rezultat, numar);
                                     break;
@@ -161,6 +161,11 @@
             DisplayTextBox1.Text = "ERROR";
         }
 
+    }
+
+    protected void btnDiv_Click(object sender, EventArgs e)
+    {
+        DisplayTextBox1.Text = DisplayTextBox1.Text + " Z ";
     }
 </script>
 <html>
@@ -199,7 +204,8 @@
                         Width="95px" OnClick="ButtonNumberdot_Click" />
                 </td>
                 <td>
-                    <asp:Button ID="ButtonNumberDivide" runat="server" Height="50px" Text="D" Width="95px" ForeColor="Black" OnClick="ButtonNumberDivide_Click" />
+                    <%--<asp:Button ID="ButtonNumberDivide" runat="server" Height="50px" Text="Z" Width="95px" OnClick="ButtonNumberDivide_Click" />--%>
+                    <asp:Button ID="btnDiv" runat="server" Height="50px" Text="Z" Width="95px" OnClick="btnDiv_Click" />
                 </td>
             </tr>
           
