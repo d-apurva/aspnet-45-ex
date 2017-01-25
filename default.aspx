@@ -1,8 +1,23 @@
 <%@ Page Language="C#" %>
 <script runat="server">
-void Button1_Click(Object sender, EventArgs e) 
-{ 
-    Label1.Text = "Clicked at " + DateTime.Now.ToString(); 
+public void Page_Load(object sender, EventArgs e)
+{
+    Type type = Type.GetType("Mono.Runtime");
+    if (type != null)
+    {
+        System.Reflection.MethodInfo displayName = type.GetMethod("GetDisplayName", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+        if (displayName != null)
+            dvVersion.InnerHtml = "Current application running on Mono <b>" + displayName.Invoke(null, null) + "</b>";
+    }
+    else
+    {
+        var targetFw = System.Reflection.Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(System.Runtime.Versioning.TargetFrameworkAttribute), false);
+        string framworkName = ((System.Runtime.Versioning.TargetFrameworkAttribute)targetFw[0]).FrameworkName;
+        dvVersion.InnerHtml = "Current application running on <b>" + framworkName + "</b>";
+    }
+    dvEnvironmentVaraiable.InnerHtml = string.Empty;
+    foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
+        dvEnvironmentVaraiable.InnerHtml += string.Format("{0} = {1}<br/>", de.Key.ToString().Trim(), de.Value.ToString().Trim());
 }
 </script>
 <html>
@@ -10,18 +25,18 @@ void Button1_Click(Object sender, EventArgs e)
   <title>Single-File Page Model</title>
 </head>
 <body>
-  <form runat="server">
     <div>
-       <asp:Label id="Label1" 
+        <p id="dvVersion" runat="server" />
+        <p id="dvEnvironmentVaraiable" runat="server"></p>
+       <label id="Label1" 
          runat="server" Text="Label">
-       </asp:Label>
+       </label>
        <br />
-       <asp:Button id="Button1" 
+       <button id="Button1" 
          runat="server" 
-         onclick="Button1_Click" 
-         Text="Button">
-      </asp:Button>
+         onclick="" 
+         title="Button">
+      </button>
     </div>
-  </form>
 </body>
 </html>
