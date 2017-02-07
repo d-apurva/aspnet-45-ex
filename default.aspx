@@ -164,7 +164,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href="main.css" rel="stylesheet" />
-    <title>Welcome to Calculator on OpenShift</title>
+    <title>Click2cloud, Welcome to Calculator on OpenShift</title>
 </head>
 <body>
     <form runat="server">
