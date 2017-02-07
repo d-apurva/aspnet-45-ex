@@ -170,7 +170,7 @@
     <form runat="server">
         <section class="container">
             <hgroup>
-                <h1>Welcome to Calculator on OpenShift</h1>
+                <h1>click2cloud, Welcome to Calculator on OpenShift</h1>
             </hgroup>
 
         
