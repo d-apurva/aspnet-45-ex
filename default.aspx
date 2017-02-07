@@ -164,13 +164,13 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href="main.css" rel="stylesheet" />
-    <title>Welcome to "Calculator Cristina" on OpenShift cal</title>
+    <title>Welcome to Calculator on OpenShift</title>
 </head>
 <body>
     <form runat="server">
         <section class="container">
             <hgroup>
-                <h1>Welcome to "Calculator Cristina" on OpenShift, cal</h1>
+                <h1>Welcome to Calculator on OpenShift</h1>
             </hgroup>
 
         
