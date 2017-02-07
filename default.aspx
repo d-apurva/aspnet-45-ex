@@ -170,7 +170,7 @@
     <form runat="server">
         <section class="container">
             <hgroup>
-                <h1>Welcome to "Calculator Cristina" on OpenShift</h1>
+                <h1>Welcome to "Calculator Cristina" on OpenShift, cal</h1>
             </hgroup>
 
         
