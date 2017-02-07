@@ -164,7 +164,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href="main.css" rel="stylesheet" />
-    <title>Welcome to "Calculator Cristina" on OpenShift</title>
+    <title>Welcome to "Calculator Cristina" on OpenShift cal</title>
 </head>
 <body>
     <form runat="server">
