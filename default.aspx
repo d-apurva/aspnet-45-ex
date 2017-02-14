@@ -1,7 +1,7 @@
 <%@ Page Language="C#" %>
  <script language="c#" runat="server">
 
-        protected void ButtonNumberdot_Click(object sender, EventArgs e)
+        protected void ButtonNumber_Click(object sender, EventArgs e)
         {
             DisplayTextBox1.Text = DisplayTextBox1.Text + ".";
         }
